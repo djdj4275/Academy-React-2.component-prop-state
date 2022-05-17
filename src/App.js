@@ -6,6 +6,7 @@ import TrueComponent from './components/TrueComponent';
 import FalseComponent from './components/FalseComponent';
 import ArrowLogin from './components/ArrowLogin';
 import StateComponent from './components/StateComponent';
+import ArrowState from './components/ArrowState';
 
 import MyLogin from "./components/MyLogin";
 
@@ -37,6 +38,7 @@ function App() {
         <StateComponent />
 
         <MyLogin login={true} name="성춘향" />
+        <ArrowState />
       </header>
     </div>
   );

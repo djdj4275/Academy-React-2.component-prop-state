@@ -3,19 +3,21 @@
 import {Component} from 'react';
 
 class StateComponent extends Component {
-    constructor(props) {
+    constructor(props) { // constructor로 this.state에 state 값을 설정후 사용
         super(props);
         this.state = {
-            number : 0
+            number : 0,
+            name : '',
         }
     }
     render() {
         const { number } = this.state
+        const { name } = this.state
         return (
             <div>
                 <h1>{number}</h1>
                 <button onClick={()=>{
-                    this.setState({ number : number + 1 });
+                    this.setState({ number : number + 1 }); // setState는 state 변경함수
                 }}>
                     +1
                 </button>
@@ -36,15 +38,24 @@ class StateComponent extends Component {
                         number : 0,
                     }));
                 }}>
-                    +1
+                    0
                 </button>
                 {/* 버튼을 눌렀을대 값이 -1씩 감소하는 버튼 */}
                 <button onClick={()=>{
-                    this.setState(() => ({
-                        number : number -1,
+                    this.setState((prevstate) => ({
+                        number : prevstate.number -1,
                     }));
                 }}>
-                    +1
+                    -1
+                </button>
+
+                <h2>{name}</h2>
+                <button onClick={()=>{
+                    this.setState((prevstate) => ({
+                        name : "홍길동"
+                    }))
+                }}>
+                    버튼을 누르면 이름이 나옵니다
                 </button>
             </div>
         );
